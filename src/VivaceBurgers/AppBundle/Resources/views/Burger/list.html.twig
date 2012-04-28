@@ -1,0 +1,20 @@
+{% extends '::base.html.twig' %}
+
+{% block title "Our burgers" %}
+
+{% block body %}
+<h1>Our burgers</h1>
+
+{% for burger in burgers %}
+    <div>
+        <h2>{{burger.name}}</h2>
+        <dl>
+            <dt>Price:</dt>
+            <dd>${{burger.price|number_format(2, '.', ',')}}</dd>
+        </dl>
+        <div>
+            {{burger.description|markdown}}
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}
