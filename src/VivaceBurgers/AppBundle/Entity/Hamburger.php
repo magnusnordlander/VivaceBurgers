@@ -2,44 +2,70 @@
 
 namespace VivaceBurgers\AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="hamburger")
+ */
 class Hamburger
 {
-	protected $name, $description, $price;
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
 
-	public function __construct($name, $price, $description = "")
-	{
-		$this->setName($name);
-		$this->setPrice($price);
-		$this->setDescription($description);
-	}
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $name;
 
-	public function setName($name)
-	{
-		$this->name = $name;
-	}
+    /**
+     * @ORM\Column(type="string", length=4000)
+     */
+    protected $description;
 
-	public function getName()
-	{
-		return $this->name;
-	}
+    /**
+     * @ORM\Column(type="decimal", scale=2)
+     */
+    protected $price;
 
-	public function setDescription($description)
-	{
-		$this->description = $description;
-	}
+    public function __construct($name, $price, $description = "")
+    {
+        $this->setName($name);
+        $this->setPrice($price);
+        $this->setDescription($description);
+    }
 
-	public function getDescription()
-	{
-		return $this->description;
-	}
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
 
-	public function setPrice($price)
-	{
-		$this->price = $price;
-	}
+    public function getName()
+    {
+        return $this->name;
+    }
 
-	public function getPrice()
-	{
-		return $this->price;
-	}
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    public function setPrice($price)
+    {
+        $this->price = $price;
+    }
+
+    public function getPrice()
+    {
+        return $this->price;
+    }
 }
