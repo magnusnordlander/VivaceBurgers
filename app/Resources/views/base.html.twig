@@ -2,12 +2,40 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}Welcome!{% endblock %} - Vivace Burgers</title>
+        {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap-responsive.min.css')}}">
+
+        <style type="text/css">
+        body
+        {
+            background-image: url('{{asset('img/dark-linen.jpg')}}');
+        }
+
+        .well
+        {
+            background-image: url('{{asset('img/seamlesspaper2.jpg')}}');
+            -moz-box-shadow: 5px 5px 3px #111;
+            -webkit-box-shadow: 5px 5px 3px #111;
+            box-shadow: 5px 5px 3px #111;
+        }
+        </style>
+        {% endblock %}
         <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+            <div class="container">
+                <div class="row">
+                    <div class="page-header well span6 offset3">
+                        <h1>Vivace Burgers <small>{{block('title')}}</small></h1>
+                    </div>
+                </div>
+
+                {% block content "" %}
+            </div>
+        {% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>

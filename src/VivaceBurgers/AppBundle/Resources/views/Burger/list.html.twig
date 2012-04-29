@@ -2,19 +2,15 @@
 
 {% block title "Our burgers" %}
 
-{% block body %}
-<h1>Our burgers</h1>
-
+{% block content %}
 {% for burger in burgers %}
-    <div>
-        <h2>{{burger.name}}</h2>
-        <dl>
-            <dt>Price:</dt>
-            <dd>${{burger.price|number_format(2, '.', ',')}}</dd>
-        </dl>
+<div class="row">
+    <div class="span6 offset3 well">
+        <h2>{{burger.name}} <small>${{burger.price|number_format(2, '.', ',')}}</small></h2>
         <div>
             {{burger.description|markdown}}
         </div>
     </div>
+</div>
 {% endfor %}
 {% endblock %}
