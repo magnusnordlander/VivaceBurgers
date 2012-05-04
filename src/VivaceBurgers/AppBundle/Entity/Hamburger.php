@@ -32,11 +32,16 @@ class Hamburger
      */
     protected $price;
 
-    public function __construct($name, $price, $description = "")
+    public function __construct($name = "", $price = 0, $description = "")
     {
         $this->setName($name);
         $this->setPrice($price);
         $this->setDescription($description);
+    }
+
+    public function getId()
+    {
+        return $this->id;
     }
 
     public function setName($name)
