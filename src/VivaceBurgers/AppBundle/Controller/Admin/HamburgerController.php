@@ -9,6 +9,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use VivaceBurgers\AppBundle\Entity\Hamburger;
 use VivaceBurgers\AppBundle\Form\HamburgerType;
 
+use JMS\SecurityExtraBundle\Annotation\Secure;
+
 /**
  * Hamburger controller.
  *
@@ -58,6 +60,7 @@ class HamburgerController extends Controller
      * Displays a form to create a new Hamburger entity.
      *
      * @Route("/new", name="admin_hamburger_new")
+     * @Secure(roles="ROLE_ADMIN")
      * @Template()
      */
     public function newAction()
@@ -75,6 +78,7 @@ class HamburgerController extends Controller
      * Creates a new Hamburger entity.
      *
      * @Route("/create", name="admin_hamburger_create")
+     * @Secure(roles="ROLE_ADMIN")
      * @Method("post")
      * @Template("VivaceBurgersAppBundle:Hamburger:new.html.twig")
      */
@@ -104,6 +108,7 @@ class HamburgerController extends Controller
      * Displays a form to edit an existing Hamburger entity.
      *
      * @Route("/{id}/edit", name="admin_hamburger_edit")
+     * @Secure(roles="ROLE_ADMIN")
      * @Template()
      */
     public function editAction($id)
@@ -130,6 +135,7 @@ class HamburgerController extends Controller
      * Edits an existing Hamburger entity.
      *
      * @Route("/{id}/update", name="admin_hamburger_update")
+     * @Secure(roles="ROLE_ADMIN")
      * @Method("post")
      * @Template("VivaceBurgersAppBundle:Hamburger:edit.html.twig")
      */
@@ -168,6 +174,7 @@ class HamburgerController extends Controller
      * Deletes a Hamburger entity.
      *
      * @Route("/{id}/delete", name="admin_hamburger_delete")
+     * @Secure(roles="ROLE_ADMIN")
      * @Method("post")
      */
     public function deleteAction($id)
